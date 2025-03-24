@@ -15,3 +15,6 @@ A machine learning-based web application built using **Flask** to predict traffi
 
 ## 📂 Project Structure  
 📁 traffic-prediction-app │── 📄 app.py # Flask application │── 📁 static/ # CSS, JavaScript, images │── 📁 templates/ # HTML files (index.html, results.html) │── 📄 model.pkl # Trained ML model │── 📄 requirements.txt # Required Python libraries │── 📄 README.md # Project Documentation
+
+**How to Use the requirements.txt File**
+pip install -r requirements.txt
