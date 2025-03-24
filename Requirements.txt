@@ -1,0 +1,9 @@
+Flask
+pandas
+numpy
+scikit-learn
+matplotlib
+joblib
+torch  # If using Deep Learning (N-BEATS)
+ngrok  # If running on Google Colab
+gunicorn  # If deploying on Heroku or similar platforms
