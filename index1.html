@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('static/plots/BG.jpeg');
+            background-size: 65%;  /* Full cover for a more dramatic effect */
+            background-position: center;
+            background-attachment: fixed;
+            padding: 20px;
+            color: #f4f4f4;  /* Lighter text color for better contrast */
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);  /* Darker background with more opacity */
+            color: #f4f4f4;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            margin-top: 30px;
+        }
+        .header {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .header .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .header img {
+            width: 100px;
+            height: auto;
+            opacity: 0.8;
+            margin-right: 20px;
+        }
+        h1, h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #b0b0b0;  /* Lighter label color */
+        }
+        .btn-primary {
+            width: 100%;
+            background-color: #e06208;
+            border-color: #8b4000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        .btn-primary:hover {
+            background-color: #030303;  /* Darker shade on hover */
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-control {
+            background-color: #333;
+            color: white;
+            border: 1px solid #444;
+        }
+        .form-control:focus {
+            border-color: #e06208;
+            box-shadow: 0 0 5px rgba(224, 98, 8, 0.8);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #b7b4b4;
+        }
+        .footer p {
+            margin: 0;
+            padding: 10px;
+        }
+        .container, .footer {
+            border-radius: 15px;
+        }
+        .container form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with College Name and Logo -->
+    <div class="header">
+        <div class="logo-container">
+            <img src="static/plots/LOGO3.png" alt="College Logo">
+            <div>
+                <h1>PUDUCHERRY TECHNOLOGICAL UNIVERSITY</h1>
+                <h3>Traffic Prediction System</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Traffic Prediction Form</h2>
+        <form method="POST">
+            <!-- Date input -->
+            <div class="form-group">
+                <label for="date">Select Date:</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+
+            <!-- Hour selection -->
+            <div class="form-group">
+                <label for="hour">Select Hour:</label>
+                <select class="form-control" id="hour" name="hour" required>
+                    <option value="0">00:00</option>
+                    <option value="1">01:00</option>
+                    <option value="2">02:00</option>
+                    <option value="3">03:00</option>
+                    <option value="4">04:00</option>
+                    <option value="5">05:00</option>
+                    <option value="6">06:00</option>
+                    <option value="7">07:00</option>
+                    <option value="8">08:00</option>
+                    <option value="9">09:00</option>
+                    <option value="10" selected>10:00</option>
+                    <option value="11">11:00</option>
+                    <option value="12">12:00</option>
+                    <option value="13">13:00</option>
+                    <option value="14">14:00</option>
+                    <option value="15">15:00</option>
+                    <option value="16">16:00</option>
+                    <option value="17">17:00</option>
+                    <option value="18">18:00</option>
+                    <option value="19">19:00</option>
+                    <option value="20">20:00</option>
+                    <option value="21">21:00</option>
+                    <option value="22">22:00</option>
+                    <option value="23">23:00</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Day of the Week -->
+            <div class="form-group">
+                <label for="day_of_week">Day of the Week:</label>
+                <select class="form-control" id="day_of_week" name="day_of_week" required>
+                    <option value="0">Monday</option>
+                    <option value="1">Tuesday</option>
+                    <option value="2">Wednesday</option>
+                    <option value="3">Thursday</option>
+                    <option value="4">Friday</option>
+                    <option value="5">Saturday</option>
+                    <option value="6">Sunday</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Is it a Holiday -->
+            <div class="form-group">
+                <label for="is_holiday">Is it a holiday?</label>
+                <select class="form-control" id="is_holiday" name="is_holiday" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            
+            <!-- Dropdown for Air Pollution Index -->
+            <div class="form-group">
+                <label for="air_pollution_index">Air Pollution Index:</label>
+                <select class="form-control" id="air_pollution_index" name="air_pollution_index" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Humidity -->
+            <div class="form-group">
+                <label for="humidity">Humidity (%):</label>
+                <select class="form-control" id="humidity" name="humidity" required>
+                    <option value="0">0%</option>
+                    <option value="10">10%</option>
+                    <option value="20">20%</option>
+                    <option value="30">30%</option>
+                    <option value="40">40%</option>
+                    <option value="50">50%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
+                    <option value="100">100%</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Wind Speed -->
+            <div class="form-group">
+                <label for="wind_speed">Wind Speed (km/h):</label>
+                <select class="form-control" id="wind_speed" name="wind_speed" required>
+                    <option value="0">0 km/h</option>
+                    <option value="5">5 km/h</option>
+                    <option value="10">10 km/h</option>
+                    <option value="15">15 km/h</option>
+                    <option value="20">20 km/h</option>
+                    <option value="25">25 km/h</option>
+                    <option value="30">30 km/h</option>
+                    <option value="35">35 km/h</option>
+                    <option value="40">40 km/h</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Wind Direction -->
+            <div class="form-group">
+                <label for="wind_direction">Wind Direction (degrees):</label>
+                <select class="form-control" id="wind_direction" name="wind_direction" required>
+                    <option value="0">0°</option>
+                    <option value="45">45°</option>
+                    <option value="90">90°</option>
+                    <option value="135">135°</option>
+                    <option value="180">180°</option>
+                    <option value="225">225°</option>
+                    <option value="270">270°</option>
+                    <option value="315">315°</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Visibility -->
+            <div class="form-group">
+                <label for="visibility_in_miles">Visibility (miles):</label>
+                <select class="form-control" id="visibility_in_miles" name="visibility_in_miles" required>
+                    <option value="1">1 mile</option>
+                    <option value="2">2 miles</option>
+                    <option value="3">3 miles</option>
+                    <option value="4">4 miles</option>
+                    <option value="5">5 miles</option>
+                    <option value="6">6 miles</option>
+                    <option value="7">7 miles</option>
+                    <option value="8">8 miles</option>
+                    <option value="9">9 miles</option>
+                    <option value="10">10 miles</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Dew Point -->
+            <div class="form-group">
+                <label for="dew_point">Dew Point (°C):</label>
+                <select class="form-control" id="dew_point" name="dew_point" required>
+                    <option value="0">0°C</option>
+                    <option value="5">5°C</option>
+                    <option value="10">10°C</option>
+                    <option value="15">15°C</option>
+                    <option value="20">20°C</option>
+                    <option value="25">25°C</option>
+                    <option value="30">30°C</option>
+                    <option value="35">35°C</option>
+                    <option value="40">40°C</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Temperature -->
+            <div class="form-group">
+                <label for="temperature">Temperature (°C):</label>
+                <select class="form-control" id="temperature" name="temperature" required>
+                    <option value="0">0°C</option>
+                    <option value="10">10°C</option>
+                    <option value="20">20°C</option>
+                    <option value="30">30°C</option>
+                    <option value="40">40°C</option>
+                    <option value="50">50°C</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Rain Per Hour (rain_p_h) -->
+            <div class="form-group">
+                <label for="clouds_all">Clouds (in percentage):</label>
+                <select class="form-control" id="clouds_all" name="clouds_all" required>
+                    <option value="">Select Cloud Percentage</option>
+                    <option value="10">10%</option>
+                    <option value="20">20%</option>
+                    <option value="50">50%</option>
+                    <option value="80">80%</option>
+                    <option value="100">100%</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="rain_p_h">Rain Per Hour (mm):</label>
+                <select class="form-control" id="rain_p_h" name="rain_p_h" required>
+                    <option value="0">0 mm</option>
+                    <option value="1">1 mm</option>
+                    <option value="2">2 mm</option>
+                    <option value="3">3 mm</option>
+                    <option value="4">4 mm</option>
+                    <option value="5">5 mm</option>
+                </select>
+            </div>
+
+            
+            <!-- Dropdown for Snow Per Hour (snow_p_h) -->
+            <div class="form-group">
+                <label for="snow_p_h">Snow Per Hour (mm):</label>
+                <select class="form-control" id="snow_p_h" name="snow_p_h" required>
+                    <option value="0">0 mm</option>
+                    <option value="1">1 mm</option>
+                    <option value="2">2 mm</option>
+                    <option value="3">3 mm</option>
+                    <option value="4">4 mm</option>
+                    <option value="5">5 mm</option>
+                </select>
+            </div>
+           
+
+            <button type="submit" class="btn btn-primary">Predict Traffic</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Puducherry Technological University | All Rights Reserved</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

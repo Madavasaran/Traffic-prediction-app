@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Prediction</title>
+</head>
+<body>
+    <h1>Traffic Prediction</h1>
+    <form method="POST">
+        <!-- Air Pollution Index Dropdown -->
+        <label for="air_pollution_index">Air Pollution Index:</label><br>
+        <select id="air_pollution_index" name="air_pollution_index" required>
+            <option value="">Select Air Pollution Index</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        
+        <!-- Humidity Dropdown -->
+        <label for="humidity">Humidity:</label><br>
+        <select id="humidity" name="humidity" required>
+            <option value="">Select Humidity</option>
+            <option value="20">20%</option>
+            <option value="40">40%</option>
+            <option value="60">60%</option>
+            <option value="80">80%</option>
+            <option value="100">100%</option>
+        </select><br>
+        
+        <!-- Wind Speed Dropdown -->
+        <label for="wind_speed">Wind Speed:</label><br>
+        <select id="wind_speed" name="wind_speed" required>
+            <option value="">Select Wind Speed</option>
+            <option value="5">5 km/h</option>
+            <option value="10">10 km/h</option>
+            <option value="15">15 km/h</option>
+            <option value="20">20 km/h</option>
+        </select><br>
+        
+        <!-- Wind Direction Dropdown -->
+        <label for="wind_direction">Wind Direction:</label><br>
+        <select id="wind_direction" name="wind_direction" required>
+            <option value="">Select Wind Direction</option>
+            <option value="0">North</option>
+            <option value="90">East</option>
+            <option value="180">South</option>
+            <option value="270">West</option>
+        </select><br>
+        
+        <!-- Visibility in Miles Dropdown -->
+        <label for="visibility_in_miles">Visibility in Miles:</label><br>
+        <select id="visibility_in_miles" name="visibility_in_miles" required>
+            <option value="">Select Visibility</option>
+            <option value="1">1 mile</option>
+            <option value="2">2 miles</option>
+            <option value="5">5 miles</option>
+            <option value="10">10 miles</option>
+        </select><br>
+        
+        <!-- Dew Point Dropdown -->
+        <label for="dew_point">Dew Point:</label><br>
+        <select id="dew_point" name="dew_point" required>
+            <option value="">Select Dew Point</option>
+            <option value="10">10°C</option>
+            <option value="15">15°C</option>
+            <option value="20">20°C</option>
+            <option value="25">25°C</option>
+        </select><br>
+        
+        <!-- Temperature Dropdown -->
+        <label for="temperature">Temperature:</label><br>
+        <select id="temperature" name="temperature" required>
+            <option value="">Select Temperature</option>
+            <option value="10">10°C</option>
+            <option value="20">20°C</option>
+            <option value="30">30°C</option>
+            <option value="40">40°C</option>
+        </select><br>
+        
+        <!-- Rain per hour Dropdown -->
+        <label for="rain_p_h">Rain per hour:</label><br>
+        <select id="rain_p_h" name="rain_p_h" required>
+            <option value="">Select Rain per hour</option>
+            <option value="0">0 mm/h</option>
+            <option value="1">1 mm/h</option>
+            <option value="2">2 mm/h</option>
+            <option value="5">5 mm/h</option>
+        </select><br>
+        
+        <!-- Snow per hour Dropdown -->
+        <label for="snow_p_h">Snow per hour:</label><br>
+        <select id="snow_p_h" name="snow_p_h" required>
+            <option value="">Select Snow per hour</option>
+            <option value="0">0 mm/h</option>
+            <option value="1">1 mm/h</option>
+            <option value="2">2 mm/h</option>
+            <option value="5">5 mm/h</option>
+        </select><br>
+        
+        <!-- Clouds Dropdown -->
+        <label for="clouds_all">Clouds (in percentage):</label><br>
+        <select id="clouds_all" name="clouds_all" required>
+            <option value="">Select Cloud Percentage</option>
+            <option value="10">10%</option>
+            <option value="20">20%</option>
+            <option value="50">50%</option>
+            <option value="80">80%</option>
+            <option value="100">100%</option>
+        </select><br>
+        
+        <!-- Hour Dropdown -->
+        <label for="hour">Hour:</label><br>
+        <select id="hour" name="hour" required>
+            <option value="">Select Hour</option>
+            <option value="0">00:00</option>
+            <option value="1">01:00</option>
+            <option value="2">02:00</option>
+            <option value="3">03:00</option>
+            <option value="4">04:00</option>
+            <option value="5">05:00</option>
+            <option value="6">06:00</option>
+            <option value="7">07:00</option>
+            <option value="8">08:00</option>
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+            <option value="23">23:00</option>
+        </select><br>
+        
+        <!-- Day of Week Dropdown -->
+        <label for="day_of_week">Day of the Week:</label><br>
+        <select id="day_of_week" name="day_of_week" required>
+            <option value="">Select Day of the Week</option>
+            <option value="0">Sunday</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+        </select><br>
+        
+        <!-- Is Holiday Dropdown -->
+        <label for="is_holiday">Is Holiday:</label><br>
+        <select id="is_holiday" name="is_holiday" required>
+            <option value="">Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+        
+        <button type="submit">Predict Traffic Volume</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Traffic Volume Prediction:</h2>
+        <img src="{{ url_for('index') }}" alt="Prediction graph" />
+    {% endif %}
+</body>
+</html>
